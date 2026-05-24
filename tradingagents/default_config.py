@@ -93,10 +93,10 @@ DEFAULT_CONFIG = _apply_env_overrides({
     # Data vendor configuration
     # Category-level configuration (default for all tools in category)
     "data_vendors": {
-        "core_stock_apis": "yfinance",       # Options: alpha_vantage, yfinance
-        "technical_indicators": "yfinance",  # Options: alpha_vantage, yfinance
-        "fundamental_data": "yfinance",      # Options: alpha_vantage, yfinance
-        "news_data": "yfinance",             # Options: alpha_vantage, yfinance
+        "core_stock_apis": "tushare",        # Options: alpha_vantage, yfinance, tushare
+        "technical_indicators": "tushare",   # Options: alpha_vantage, yfinance, tushare
+        "fundamental_data": "tushare",       # Options: alpha_vantage, yfinance, tushare
+        "news_data": "yfinance",             # Options: alpha_vantage, yfinance, tushare
     },
     # Tool-level configuration (takes precedence over category-level)
     "tool_vendors": {
@@ -110,13 +110,16 @@ DEFAULT_CONFIG = _apply_env_overrides({
     # while non-US tickers get their regional index automatically.
     "benchmark_ticker": None,
     "benchmark_map": {
-        ".NS":  "^NSEI",    # NSE India (Nifty 50)
-        ".BO":  "^BSESN",   # BSE India (Sensex)
-        ".T":   "^N225",    # Tokyo (Nikkei 225)
-        ".HK":  "^HSI",     # Hong Kong (Hang Seng)
-        ".L":   "^FTSE",    # London (FTSE 100)
-        ".TO":  "^GSPTSE",  # Toronto (TSX Composite)
-        ".AX":  "^AXJO",    # Australia (ASX 200)
-        "":     "SPY",      # default for US-listed tickers (no suffix)
+        ".SH":  "000300.SH",  # CSI 300 (A-share Shanghai-listed)
+        ".SZ":  "399001.SZ",  # Shenzhen Component Index
+        ".SS":  "000300.SH",  # Yahoo-style Shanghai suffix
+        ".NS":  "^NSEI",      # NSE India (Nifty 50)
+        ".BO":  "^BSESN",     # BSE India (Sensex)
+        ".T":   "^N225",      # Tokyo (Nikkei 225)
+        ".HK":  "^HSI",       # Hong Kong (Hang Seng)
+        ".L":   "^FTSE",      # London (FTSE 100)
+        ".TO":  "^GSPTSE",    # Toronto (TSX Composite)
+        ".AX":  "^AXJO",      # Australia (ASX 200)
+        "":     "SPY",        # default for US-listed tickers (no suffix)
     },
 })

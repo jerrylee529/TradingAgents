@@ -151,7 +151,22 @@ export MINIMAX_API_KEY=...         # MiniMax — Global (api.minimax.io, M2.x, 2
 export MINIMAX_CN_API_KEY=...      # MiniMax — China (api.minimaxi.com, M2.x, 204K ctx)
 export OPENROUTER_API_KEY=...      # OpenRouter
 export ALPHA_VANTAGE_API_KEY=...   # Alpha Vantage
+export TUSHARE_TOKEN=...           # Tushare Pro (A-share market data)
 ```
+
+### A-share data (Tushare)
+
+By default, OHLCV, technical indicators, and fundamentals use **Tushare Pro** (`data_vendors` in `tradingagents/default_config.py`). News still defaults to Yahoo Finance.
+
+1. Register at [tushare.pro](https://tushare.pro) and add `TUSHARE_TOKEN` to `.env`.
+2. Use Tushare-style tickers: `600519.SH`, `000001.SZ` (Yahoo-style `600519.SS` is auto-converted).
+3. Optional smoke check:
+
+```bash
+pytest tests/test_tushare_common.py tests/test_tushare_vendor.py -m unit
+```
+
+To switch a category back to Yahoo Finance, set `data_vendors` in config (e.g. `"core_stock_apis": "yfinance"`).
 
 For enterprise providers (e.g. Azure OpenAI, AWS Bedrock), copy `.env.enterprise.example` to `.env.enterprise` and fill in your credentials.
 
